@@ -5,3 +5,9 @@ exports.getTopics=()=>{
         return topics
     })
 }
+
+exports.getArticles=(query)=>{
+    return axios.get("https://ced-nc-news.herokuapp.com/api/articles", {params: query}).then(({data: {articles}})=>{
+        return articles
+    })
+}
