@@ -10,6 +10,7 @@ class ArticleCard extends Component {
         <p>{article.body}</p>
         <button>Upvote</button>
         <button>Downvote</button>
+        <p>Comments Card</p>
             </div>
         );
     }

@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
-import ArticleCard from "./ArticleCard"
+import ArticlePreview from "./ArticlePreview"
 import * as api from "../api"
 import Loading from "./Loading"
 
 class TopArticles extends Component {
     state={
-        articles:[],
+        topArticles:[],
         isLoading:true
     }
 
     componentDidMount() {
-        api.getArticles({sort_by:"votes", limit:4}).then(articles=>{
+        api.getArticles({sort_by:"votes", limit:4}).then(topArticles=>{
             this.setState(currentState=>{
                 return {
-                    articles, isLoading: false
+                    topArticles, isLoading: false
                 }
-            }
-            )
+            })
         })
     }
 
@@ -26,9 +25,11 @@ class TopArticles extends Component {
         return (
             <div>
                 <h3>Top Articles</h3>
-                {this.state.articles.map(article=>{
-                    return <ArticleCard key={article.article_id} article={article}/>
-                })}
+                <section className="topArticles">
+                {this.state.topArticles.map(article=>{
+                    return <ArticlePreview article={article}/>
+                })}   
+                </section>
             </div>
         );
     }

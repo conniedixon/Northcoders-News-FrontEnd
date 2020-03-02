@@ -7,9 +7,15 @@
 }
 
 .main{
-  /* border: 5px solid orange */
+  border: 5px solid orange
 }
 
 .footer{
   border: 5px solid blue
+}
+
+.topArticles{
+  display:flex;
+  flex-direction:rows;
+  justify-content:space-around
 }

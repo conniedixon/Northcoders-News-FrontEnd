@@ -16,8 +16,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Header/>
+      <div id="root">
+        <Header />
         <NavBar />
         <Router >
           <Home path="/"/>
