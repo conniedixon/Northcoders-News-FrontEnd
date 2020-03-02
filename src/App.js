@@ -5,6 +5,8 @@ import Home from "./components/Home"
 import Topics from "./components/Topics"
 import { Router } from "@reach/router"
 import Footer from './components/Footer';
+import "./App.css"
+
 
 class App extends Component {
   state={
@@ -15,10 +17,10 @@ class App extends Component {
     return (
       <div>
         <Header/>
-        <NavBar/>
-        <Router>
+        <NavBar />
+        <Router >
           <Home path="/"/>
-          <Topics path= "/topics"/>
+          <Topics path= "/topics/*"/>
         </Router>
         <Footer/>
       </div>
