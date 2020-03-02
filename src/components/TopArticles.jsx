@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import ArticleCard from "./ArticleCard"
 import * as api from "../api"
+import Loading from "./Loading"
 
 class TopArticles extends Component {
     state={
@@ -20,10 +22,12 @@ class TopArticles extends Component {
 
 
     render() {
+        if (this.state.isLoading) return <Loading/>
         return (
             <div>
+                <h3>Top Articles</h3>
                 {this.state.articles.map(article=>{
-                    return <ArticleCard />
+                    return <ArticleCard key={article.article_id} article={article}/>
                 })}
             </div>
         );

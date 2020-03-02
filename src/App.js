@@ -23,6 +23,7 @@ class App extends Component {
           <Home path="/"/>
           <Topics path= "/topics/*"/>
         </Router>
+        <br/>
         <Footer/>
       </div>
     );
