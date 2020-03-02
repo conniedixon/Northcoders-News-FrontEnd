@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import {Link} from "@reach/router"
+import * as api from "../api.js"
 
 class Navbar extends Component {
     state={
-        articles=[]
+        topics:[]
     }
+
+    componentDidMount() {
+        api.getTopics().then((topics)=>{
+            this.setState({topics})
+        })
+    }
+
     render() {
         return (
             <nav>
             <Link to="/"><button>Home</button></Link>
-
-            <Link to="/topics"><button>Topics</button> </Link>
+            {this.state.topics.map(topic=> {
+               return <Link key={topic.slug} to={`/topics/${topic.slug}`}> {topic.slug} </Link>
+            })}
           </nav>
         );
     }
