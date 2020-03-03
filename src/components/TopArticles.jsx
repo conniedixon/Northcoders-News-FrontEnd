@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ArticlePreview from "./ArticlePreview"
+import TopArticlePreview from "./TopArticlePreview"
 import * as api from "../api"
 import Loading from "./Loading"
 
@@ -27,7 +27,7 @@ class TopArticles extends Component {
                 <h3>Top Articles</h3>
                 <section className="topArticles">
                 {this.state.topArticles.map(article=>{
-                    return <ArticlePreview article={article}/>
+                    return <TopArticlePreview article={article}/>
                 })}   
                 </section>
             </div>
