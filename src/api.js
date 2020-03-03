@@ -11,3 +11,9 @@ exports.getArticles=(query)=>{
         return articles
     })
 }
+
+exports.getArticleComments=(article_id)=>{
+    return axios.get(`https://ced-nc-news.herokuapp.com/api/articles/${article_id}/comments`).then(({data: {comments}})=>{
+        return comments
+    })
+}

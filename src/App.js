@@ -10,9 +10,9 @@ import "./App.css"
 
 class App extends Component {
   state={
-    user: "Connie"
+    user: "Connie",
+    article_id: []
   }
-
 
   render() {
     return (
