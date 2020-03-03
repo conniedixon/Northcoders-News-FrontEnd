@@ -33,7 +33,7 @@ class ArticleComments extends Component {
               <p>
                 --{comment.author}, {comment.created_at}
               </p>
-              <Voter />
+              <Voter article_id={this.props.article_id} votes={comment.votes} />
             </>
           );
         })}
