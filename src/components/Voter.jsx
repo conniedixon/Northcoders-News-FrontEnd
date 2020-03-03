@@ -14,21 +14,21 @@ class Voter extends Component {
   };
 
   render() {
-    console.log(this.state.optimisticVotes);
-    console.log(this.props.votes, '<-- votes');
     return (
       <div>
         <button
           onClick={() => {
             this.handleClick(1);
-          }}>
+          }}
+          disabled={this.state.optimisticVotes === 1}>
           Upvote
         </button>
         <p>{this.props.votes + this.state.optimisticVotes} votes</p>
         <button
           onClick={() => {
             this.handleClick(-1);
-          }}>
+          }}
+          disabled={this.state.optimisticVotes === -1}>
           Downvote
         </button>
       </div>
