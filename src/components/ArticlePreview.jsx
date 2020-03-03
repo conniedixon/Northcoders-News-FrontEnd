@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
+import Voter from './Voter';
 
 class ArticlePreview extends Component {
   state = {
@@ -25,8 +26,11 @@ class ArticlePreview extends Component {
             <button> Read More...</button>
           </Link>
           <p>{article.comment_count} comments</p>
-          <button>Upvote</button>
-          <button>Downvote</button>
+          <Voter
+            votes={article.votes}
+            id={article.article_id}
+            type='articles'
+          />
         </section>
       </>
     );

@@ -43,3 +43,12 @@ exports.getArticleByTopic = topic => {
       return articles;
     });
 };
+
+exports.handleVote = (type, id, num) => {
+  return axios.patch(`https://ced-nc-news.herokuapp.com/api/${type}/${id}`, {
+    inc_votes: num
+  });
+};
+
+//trying to put in handleVote as a multi function - keep getting errors when voting, this.props.type is
+// not working atm.

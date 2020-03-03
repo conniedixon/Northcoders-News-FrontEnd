@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { Component } from 'react';
+import * as api from '../api';
 
 class Voter extends Component {
   state = {
@@ -8,9 +9,11 @@ class Voter extends Component {
   };
 
   handleClick = num => {
-    this.setState(currentState => {
-      return { optimisticVotes: currentState.optimisticVotes + num };
-    });
+    api.handleVote(this.props.type, this.props.id, num).then(
+      this.setState(currentState => {
+        return { optimisticVotes: currentState.optimisticVotes + num };
+      })
+    );
   };
 
   render() {
