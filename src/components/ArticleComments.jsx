@@ -20,7 +20,6 @@ class ArticleComments extends Component {
                 )
         })
     }
-    
 
     render() {
         if (this.state.isLoading) return <Loading/>

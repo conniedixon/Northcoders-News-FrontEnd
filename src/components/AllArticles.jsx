@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Loading from "./Loading"
 import ArticlePreview from "./ArticlePreview"
 import * as api from "../api"
-// import SingleArticle from "./SingleArticle"
 
 class AllArticles extends Component {
     state={
