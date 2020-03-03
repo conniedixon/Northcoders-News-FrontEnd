@@ -1,33 +1,38 @@
 import React from 'react';
 import "./popup.css"
 import * as api from "../api"
+import ArticleComments from "./ArticleComments"
+import Loading from "./Loading"
 
 class SingleArticle extends React.Component {  
     state={
-        comments:[]
+        comments:[],
+        article: {},
+        isLoading: true,
     }
 
 
     componentDidMount() {
-        api.getArticleComments(this.props.article.article_id).then((comments)=>{
-            this.setState({comments})
+        api.getArticleById(this.props.article_id).then((article)=>{
+           this.setState(currentState=>{
+               return {
+                   article, isLoading: false
+               }
+           })
         })
     }
 
     render() { 
-        const article=this.props.article 
-        console.log(article)
-return (  
-<div className='popup'>  
-<div className='popup\_inner'>  
-<h1>{article.title}</h1>
-<h6>n/{article.topic} - posted by {article.author} on {article.created_at}</h6> 
-<p>{article.body}</p>
-<h4>Comments</h4>
-{/* {this.state.comments.map(comment=>{
-
-})} */}
-<button onClick={this.props.togglePopup}>close</button>  
+   if (this.state.isLoading) return <Loading/>
+        const article= this.state.article
+    return ( 
+         <div>
+        <div> 
+    <h1>{article.title}</h1>
+    <h6>n/{article.topic} - posted by {article.author} on {article.created_at}</h6> 
+    <p>{article.body}</p>
+    <h4>Comments</h4>
+    <ArticleComments article_id={article.article_id}/>
 </div>  
 </div>  
 );  

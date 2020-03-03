@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
 import * as api from "../api"
+import Loading from "./Loading"
 
 class ArticleComments extends Component {
     state={
-        comments:[]
+        isLoading: true,
+        comments: []
     }
-
-    componentDidMount(){
-        console.log(this.props.article_id)
-        api.getArticleComments().then(comments=>{
-            this.setState({comments})
+    
+    componentDidMount() {
+        api.getArticleComments(this.props.article_id).then((comments)=>{
+            this.setState(currentState=>{
+                return {
+                    isLoading:false,
+                    comments
+                }
+            }
+                
+                )
         })
     }
+    
 
     render() {
+        if (this.state.isLoading) return <Loading/>
         return (
             <div>
                { this.state.comments.map((comment)=>{
@@ -30,5 +40,6 @@ class ArticleComments extends Component {
                 )
 }
 }
+
 
 export default ArticleComments;
