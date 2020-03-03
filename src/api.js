@@ -50,5 +50,13 @@ exports.handleVote = (type, id, num) => {
   });
 };
 
-//trying to put in handleVote as a multi function - keep getting errors when voting, this.props.type is
-// not working atm.
+exports.postAComment = (id, body) => {
+  return axios
+    .post(`https://ced-nc-news.herokuapp.com/api/articles/${id}`, {
+      username: 'grumpy19',
+      body
+    })
+    .then(response => {
+      console.log(response);
+    });
+};

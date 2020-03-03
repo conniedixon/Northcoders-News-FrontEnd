@@ -16,7 +16,7 @@ class ArticlePreview extends Component {
         <Link to={`/articles/${article.article_id}`}>
           <h3>{article.title}</h3>
         </Link>
-        <section>
+        <section key={article.article_id}>
           <p>
             n/{article.topic} - posted by {article.author} on{' '}
             {article.created_at}
