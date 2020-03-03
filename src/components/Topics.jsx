@@ -12,10 +12,11 @@ class Topics extends Component {
   };
 
   componentDidMount() {
-    api.getArticles(this.props.topic).then(articles => {
+    console.log('mounted');
+    api.getArticleByTopic(this.props.topic).then(articles => {
       this.setState(currentState => {
         return {
-          articles,
+          articles: articles,
           isLoading: false
         };
       });
@@ -23,17 +24,21 @@ class Topics extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    api.getArticles(this.props.topic).then(articles => {
-      this.setState(currentState => {
-        return {
-          articles,
-          isLoading: false
-        };
+    console.log('updated');
+    if (prevProps.topic !== this.props.topic) {
+      api.getArticleByTopic(this.props.topic).then(articles => {
+        this.setState(currentState => {
+          return {
+            articles: articles,
+            isLoading: false
+          };
+        });
       });
-    });
+    }
   }
 
   render() {
+    console.log(this.state.articles, '<-- articles');
     if (this.state.isLoading) return <Loading />;
     return (
       <div>
