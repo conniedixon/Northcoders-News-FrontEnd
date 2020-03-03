@@ -3,13 +3,33 @@
 import React, { Component } from 'react';
 
 class Voter extends Component {
-  state = {};
+  state = {
+    optimisticVotes: 0
+  };
+
+  handleClick = num => {
+    this.setState(currentState => {
+      return { optimisticVotes: currentState.optimisticVotes + num };
+    });
+  };
+
   render() {
+    console.log(this.state.optimisticVotes);
     return (
       <div>
-        <button>Upvote</button>
-        <p>{}</p>
-        <button>Downvote</button>
+        <button
+          onClick={() => {
+            this.handleClick(1);
+          }}>
+          Upvote
+        </button>
+        <p>currentVotes</p>
+        <button
+          onClick={() => {
+            this.handleClick(-1);
+          }}>
+          Downvote
+        </button>
       </div>
     );
   }

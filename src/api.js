@@ -35,3 +35,11 @@ exports.getArticleComments = article_id => {
       return comments;
     });
 };
+
+exports.getArticleByTopic = topic => {
+  return axios
+    .get(`https://ced-nc-news.herokuapp.com/api/articles?topic=${topic}`)
+    .then(({ data: { articles } }) => {
+      return articles;
+    });
+};

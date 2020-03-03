@@ -12,7 +12,6 @@ class Topics extends Component {
   };
 
   componentDidMount() {
-    console.log('mounted');
     api.getArticleByTopic(this.props.topic).then(articles => {
       this.setState(currentState => {
         return {
@@ -24,7 +23,6 @@ class Topics extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('updated');
     if (prevProps.topic !== this.props.topic) {
       api.getArticleByTopic(this.props.topic).then(articles => {
         this.setState(currentState => {
@@ -38,7 +36,6 @@ class Topics extends Component {
   }
 
   render() {
-    console.log(this.state.articles, '<-- articles');
     if (this.state.isLoading) return <Loading />;
     return (
       <div>
