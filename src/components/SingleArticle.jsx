@@ -13,7 +13,7 @@ const SingleArticle = ({article}) => {
             <form>
                 //post a comment here
             </form>
-                //article comments here
+               //comments here <ArticleComments article={article}/>
         </div>
     );
 };
