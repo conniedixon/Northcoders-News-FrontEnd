@@ -29,8 +29,9 @@ class PostAComment extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <h5>Post A Comment</h5>
-        <input
+        <textarea
           type='text'
+          minlength='10'
           onChange={this.handleChange}
           value={this.state.comment}
         />
