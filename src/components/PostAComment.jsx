@@ -5,7 +5,7 @@ import * as api from '../api';
 
 class PostAComment extends Component {
   state = {
-    body: {},
+    body: '',
     comment: '',
     postedComment: ''
   };
@@ -19,10 +19,11 @@ class PostAComment extends Component {
   };
 
   handleSubmit = event => {
+    // event.target.value = '';
     event.preventDefault();
     api.postAComment(this.props.id, this.state.comment).then(comment => {
       this.props.updateComments(comment);
-      this.setState({ postedComment: comment });
+      this.setState({ postedComment: comment, comment: '' });
     });
   };
 
@@ -30,7 +31,11 @@ class PostAComment extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <h5>Post A Comment</h5>
-        <input type='text' onChange={this.handleChange}></input>
+        <input
+          type='text'
+          onChange={this.handleChange}
+          value={this.state.comment}
+        />
         <button type='submit'>Post</button>
       </form>
     );
