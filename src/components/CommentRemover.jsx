@@ -5,8 +5,8 @@ import api from '../api';
 
 class CommentRemover extends Component {
   deleteComment = event => {
-    api.deleteComment(event.target.id).then(response => {
-      console.log('Removed the comment');
+    api.deleteComment(event.target.id).then(() => {
+      this.props.handleDelete(this.props.comment_id);
     });
   };
 

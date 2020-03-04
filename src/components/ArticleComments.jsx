@@ -24,6 +24,17 @@ class ArticleComments extends Component {
     });
   }
 
+  handleDelete = deletedCommentId => {
+    let newComments = this.state.comments.filter(comment => {
+      return comment.comment_id !== deletedCommentId;
+    });
+    this.setState(currentState => {
+      return {
+        comments: newComments
+      };
+    });
+  };
+
   updateComments = comment => {
     this.setState(currentState => {
       return {
@@ -49,7 +60,10 @@ class ArticleComments extends Component {
                   --{comment.author}, {comment.created_at}
                 </h6>
                 {this.props.user === comment.author && (
-                  <CommentRemover comment_id={comment.comment_id} />
+                  <CommentRemover
+                    comment_id={comment.comment_id}
+                    handleDelete={this.handleDelete}
+                  />
                 )}
                 <Voter
                   id={comment.comment_id}
