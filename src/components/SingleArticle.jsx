@@ -4,6 +4,7 @@ import React from 'react';
 import * as api from '../api';
 import ArticleComments from './ArticleComments';
 import Loading from './Loading';
+import Voter from './Voter';
 
 class SingleArticle extends React.Component {
   state = {
@@ -34,6 +35,13 @@ class SingleArticle extends React.Component {
             n/{article.topic} - posted by {article.author} on{' '}
             {article.created_at}
           </h6>
+          <div>
+            <Voter
+              votes={article.votes}
+              type='articles'
+              id={article.article_id}
+            />
+          </div>
           <p>{article.body}</p>
           <h4>Comments</h4>
           <ArticleComments
