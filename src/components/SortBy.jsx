@@ -5,8 +5,8 @@ import React, { Component } from 'react';
 class SortBy extends Component {
   handleChange = event => {
     const queries = {
-      Oldest: { sort_by: 'created_at', order: 'desc' },
       Newest: { sort_by: 'created_at', order: 'asc' },
+      Oldest: { sort_by: 'created_at', order: 'desc' },
       Most_Commented: { sort_by: 'comment_count', order: 'asc' },
       Least_Commented: { sort_by: 'comment_count', order: 'desc' },
       Highest_Votes: { sort_by: 'votes', order: 'asc' },
@@ -17,12 +17,13 @@ class SortBy extends Component {
   };
 
   render() {
-    const defaultValue = this.props.queryValue || 'Newest';
+    const defaultValue = this.props.queryValue || 'Select Filter';
     return (
       <div>
         SortBy:
         <form>
           <select defaultValue={defaultValue} onChange={this.handleChange}>
+            <option value={'Select Filter'}>Select Filter</option>
             <option value={'Newest'}>Newest</option>
             <option value={'Oldest'}>Oldest</option>
             <option value={'Most_Commented'}>Most Commented</option>
