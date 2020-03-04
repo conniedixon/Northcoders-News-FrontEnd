@@ -5,6 +5,7 @@ import * as api from '../api';
 import Loading from './Loading';
 import Voter from './Voter';
 import PostAComment from './PostAComment';
+import CommentRemover from './CommentRemover';
 
 class ArticleComments extends Component {
   state = {
@@ -48,6 +49,7 @@ class ArticleComments extends Component {
                 <h6>
                   --{comment.author}, {comment.created_at}
                 </h6>
+                {this.props.user === comment.author && <CommentRemover />}
                 <Voter
                   id={comment.comment_id}
                   votes={comment.votes}
