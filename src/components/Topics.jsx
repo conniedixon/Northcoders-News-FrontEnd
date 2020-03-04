@@ -15,16 +15,14 @@ class Topics extends Component {
   };
 
   componentDidMount() {
-    api
-      .getArticleByTopic(this.props.topic, this.state.queries)
-      .then(articles => {
-        this.setState(currentState => {
-          return {
-            articles: articles,
-            isLoading: false
-          };
-        });
+    api.getArticleByTopic(this.props.topic).then(articles => {
+      this.setState(currentState => {
+        return {
+          articles: articles,
+          isLoading: false
+        };
       });
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -32,14 +30,16 @@ class Topics extends Component {
       prevProps.topic !== this.props.topic ||
       prevState.queries !== this.state.queries
     ) {
-      api.getArticleByTopic(this.props.topic).then(articles => {
-        this.setState(currentState => {
-          return {
-            articles: articles,
-            isLoading: false
-          };
+      api
+        .getArticleByTopic(this.props.topic, this.state.queries)
+        .then(articles => {
+          this.setState(currentState => {
+            return {
+              articles: articles,
+              isLoading: false
+            };
+          });
         });
-      });
     }
   }
 
