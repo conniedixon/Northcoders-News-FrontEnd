@@ -5,24 +5,31 @@ import * as api from '../api';
 import Loading from './Loading';
 import ArticlePreview from './ArticlePreview';
 import SortBy from './SortBy';
+import ErrorHandler from './ErrorHandler';
 
 class Topics extends Component {
   state = {
     articles: [],
     isLoading: true,
     queries: [],
-    queryValue: ''
+    queryValue: '',
+    err: null
   };
 
   componentDidMount() {
-    api.getArticleByTopic(this.props.topic).then(articles => {
-      this.setState(currentState => {
-        return {
-          articles: articles,
-          isLoading: false
-        };
+    api
+      .getArticleByTopic(this.props.topic)
+      .then(articles => {
+        this.setState(currentState => {
+          return {
+            articles: articles,
+            isLoading: false
+          };
+        });
+      })
+      .catch(err => {
+        this.setState({ err, isLoading: false });
       });
-    });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -48,6 +55,7 @@ class Topics extends Component {
   };
 
   render() {
+    if (this.state.err) return <ErrorHandler error={this.state.err.response} />;
     if (this.state.isLoading) return <Loading />;
     return (
       <div>

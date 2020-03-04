@@ -11,18 +11,24 @@ class AllArticles extends Component {
     isLoading: true,
     articles: [],
     queries: [],
-    queryValue: ''
+    queryValue: '',
+    err: null
   };
 
   componentDidMount() {
-    api.getArticles(this.state.queries).then(articles => {
-      this.setState(currentState => {
-        return {
-          articles,
-          isLoading: false
-        };
+    api
+      .getArticles(this.state.queries)
+      .then(articles => {
+        this.setState(currentState => {
+          return {
+            articles,
+            isLoading: false
+          };
+        });
+      })
+      .catch(err => {
+        this.setState({ err, isLoading: false });
       });
-    });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -44,6 +50,7 @@ class AllArticles extends Component {
 
   render() {
     if (this.state.isLoading) return <Loading />;
+    if (this.state.err) console.dir(this.state.err);
     return (
       <div>
         <SortBy
