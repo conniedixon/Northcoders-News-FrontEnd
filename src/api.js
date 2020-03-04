@@ -60,3 +60,7 @@ exports.postAComment = (id, body) => {
       return comment;
     });
 };
+
+exports.deleteComment = id => {
+  return axios.delete(`https://ced-nc-news.herokuapp.com/api/comments/${id}`);
+};

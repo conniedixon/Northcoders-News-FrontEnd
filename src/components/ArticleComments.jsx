@@ -48,7 +48,9 @@ class ArticleComments extends Component {
                 <h6>
                   --{comment.author}, {comment.created_at}
                 </h6>
-                {this.props.user === comment.author && <CommentRemover />}
+                {this.props.user === comment.author && (
+                  <CommentRemover comment_id={comment.comment_id} />
+                )}
                 <Voter
                   id={comment.comment_id}
                   votes={comment.votes}
