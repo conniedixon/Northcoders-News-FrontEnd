@@ -5,16 +5,35 @@ import * as api from '../api';
 
 class PostAComment extends Component {
   state = {
-    body: {}
+    body: {},
+    comment: '',
+    postedComment: ''
   };
 
-  handlePost = body => {
-    api.postComment(body).then(({ comment }) => {});
+  handleChange = ({ target: { value } }) => {
+    this.setState(currentState => {
+      return {
+        comment: value
+      };
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    api.postAComment(this.props.id, this.state.comment).then(comment => {
+      this.props.updateComments(comment);
+      this.setState({ postedComment: comment });
+    });
   };
 
   render() {
-    return <div>Form here</div>;
-    //make a handleinput and a handle submit function, on submit call the props.addComment in ArticleComments
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <h5>Post A Comment</h5>
+        <input type='text' onChange={this.handleChange}></input>
+        <button type='submit'>Post</button>
+      </form>
+    );
   }
 }
 

@@ -7,7 +7,7 @@ import Loading from './Loading';
 
 class SingleArticle extends React.Component {
   state = {
-    comments: [],
+    newComments: [],
     article: {},
     isLoading: true
   };
@@ -36,6 +36,7 @@ class SingleArticle extends React.Component {
           </h6>
           <p>{article.body}</p>
           <h4>Comments</h4>
+
           <ArticleComments article_id={article.article_id} />
         </div>
       </div>

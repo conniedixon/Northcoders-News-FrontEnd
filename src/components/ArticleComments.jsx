@@ -23,24 +23,32 @@ class ArticleComments extends Component {
     });
   }
 
-  // updateComments here: add to props on Post a comment, then call the function
-  // so that when called it adds the new comment to the top of the comments list.
+  updateComments = comment => {
+    console.log(comment, '<-- comment');
+    this.setState(currentState => {
+      return {
+        comments: [comment, ...currentState.comments]
+      };
+    });
+  };
 
   render() {
     if (this.state.isLoading) return <Loading />;
+
     return (
       <>
+        <PostAComment
+          id={this.props.article_id}
+          updateComments={this.updateComments}
+        />
         {this.state.comments.map(comment => {
           return (
             <section>
-              <div>
-                <PostAComment id={this.props.article_id} />
-              </div>
               <div key={comment.comment_id}>
                 <p>{comment.body}</p>
-                <p>
+                <h6>
                   --{comment.author}, {comment.created_at}
-                </p>
+                </h6>
                 <Voter
                   id={comment.comment_id}
                   votes={comment.votes}

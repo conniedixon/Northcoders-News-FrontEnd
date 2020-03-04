@@ -52,11 +52,11 @@ exports.handleVote = (type, id, num) => {
 
 exports.postAComment = (id, body) => {
   return axios
-    .post(`https://ced-nc-news.herokuapp.com/api/articles/${id}`, {
+    .post(`https://ced-nc-news.herokuapp.com/api/articles/${id}/comments`, {
       username: 'grumpy19',
-      body
+      body: body
     })
-    .then(response => {
-      console.log(response);
+    .then(({ data: { comment } }) => {
+      return comment;
     });
 };
