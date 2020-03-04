@@ -12,7 +12,7 @@ import SingleArticle from './components/SingleArticle';
 
 class App extends Component {
   state = {
-    user: 'Connie'
+    user: 'grumpy19'
   };
 
   render() {
@@ -23,7 +23,7 @@ class App extends Component {
         <Router>
           <Home path='/' />
           <Topics path='/topics/:topic' />
-          <SingleArticle path='/articles/:article_id' />
+          <SingleArticle user={this.state.user} path='/articles/:article_id' />
         </Router>
         <br />
         <Footer />

@@ -36,7 +36,10 @@ class SingleArticle extends React.Component {
           </h6>
           <p>{article.body}</p>
           <h4>Comments</h4>
-          <ArticleComments article_id={article.article_id} />
+          <ArticleComments
+            user={this.props.user}
+            article_id={article.article_id}
+          />
         </div>
       </div>
     );
