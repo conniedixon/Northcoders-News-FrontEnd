@@ -9,11 +9,12 @@ import SortBy from './SortBy';
 class AllArticles extends Component {
   state = {
     isLoading: true,
-    articles: []
+    articles: [],
+    queries: []
   };
 
   componentDidMount() {
-    api.getArticles().then(articles => {
+    api.getArticles(this.state.queries).then(articles => {
       this.setState(currentState => {
         return {
           articles,
@@ -23,11 +24,28 @@ class AllArticles extends Component {
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.queries !== this.state.queries) {
+      api.getArticles(this.state.queries).then(articles => {
+        this.setState(currentState => {
+          return {
+            articles,
+            isLoading: false
+          };
+        });
+      });
+    }
+  }
+
+  handleQuery = queries => {
+    this.setState({ queries, isLoading: true });
+  };
+
   render() {
     if (this.state.isLoading) return <Loading />;
     return (
       <div>
-        <SortBy />
+        <SortBy handleQuery={this.handleQuery} />
         <h3>All Articles</h3>
         {this.state.articles.map(article => {
           return <ArticlePreview key={article.article_id} article={article} />;
