@@ -31,7 +31,7 @@ class PostAComment extends Component {
         <h5>Post A Comment</h5>
         <textarea
           type='text'
-          minlength='10'
+          minLength='10'
           onChange={this.handleChange}
           value={this.state.comment}
         />
