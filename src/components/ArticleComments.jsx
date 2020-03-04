@@ -24,7 +24,6 @@ class ArticleComments extends Component {
   }
 
   updateComments = comment => {
-    console.log(comment, '<-- comment');
     this.setState(currentState => {
       return {
         comments: [comment, ...currentState.comments]
@@ -43,8 +42,8 @@ class ArticleComments extends Component {
         />
         {this.state.comments.map(comment => {
           return (
-            <section>
-              <div key={comment.comment_id}>
+            <section key={comment.comment_id}>
+              <div>
                 <p>{comment.body}</p>
                 <h6>
                   --{comment.author}, {comment.created_at}
