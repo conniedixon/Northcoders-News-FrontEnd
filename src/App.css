@@ -15,6 +15,14 @@
   flex-wrap: nowrap;
   flex-basis: 100%;
 }
+h1::first-letter {
+  color: rgb(167, 18, 18);
+}
+
+h1::after {
+  content: '/>';
+  color: rgb(167, 18, 18);
+}
 
 .NCtags {
   color: rgb(167, 18, 18);
