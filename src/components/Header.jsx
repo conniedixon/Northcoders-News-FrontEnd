@@ -4,9 +4,10 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div className='header'>
-      <h1>Northcoders News</h1>
-    </div>
+    <header className='header'>
+      <h1 className='NCtags'> {`<`} </h1>
+      <h1>Northcoders News </h1> <h1 className='NCtags'> {` />`} </h1>
+    </header>
   );
 };
 
