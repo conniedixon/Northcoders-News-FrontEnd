@@ -9,6 +9,7 @@ import { Router } from '@reach/router';
 import Footer from './components/Footer';
 import './App.css';
 import SingleArticle from './components/SingleArticle';
+import ErrorHandler from './components/ErrorHandler';
 
 class App extends Component {
   state = {
@@ -21,6 +22,7 @@ class App extends Component {
         <Header />
         <NavBar />
         <Router>
+          <ErrorHandler default />
           <Home path='/' />
           <Topics path='/topics/:topic' />
           <SingleArticle user={this.state.user} path='/articles/:article_id' />

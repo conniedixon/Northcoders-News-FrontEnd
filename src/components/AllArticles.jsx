@@ -5,6 +5,7 @@ import Loading from './Loading';
 import ArticlePreview from './ArticlePreview';
 import * as api from '../api';
 import SortBy from './SortBy';
+import ErrorHandler from './ErrorHandler';
 
 class AllArticles extends Component {
   state = {
@@ -27,20 +28,26 @@ class AllArticles extends Component {
         });
       })
       .catch(err => {
+        console.log('error!!');
         this.setState({ err, isLoading: false });
       });
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.queries !== this.state.queries) {
-      api.getArticles(this.state.queries).then(articles => {
-        this.setState(currentState => {
-          return {
-            articles,
-            isLoading: false
-          };
+      api
+        .getArticles(this.state.queries)
+        .then(articles => {
+          this.setState(currentState => {
+            return {
+              articles,
+              isLoading: false
+            };
+          });
+        })
+        .catch(err => {
+          this.setState({ err, isLoading: false });
         });
-      });
     }
   }
 
@@ -49,8 +56,8 @@ class AllArticles extends Component {
   };
 
   render() {
+    if (this.state.err) return <ErrorHandler error={this.state.err.response} />;
     if (this.state.isLoading) return <Loading />;
-    if (this.state.err) console.dir(this.state.err);
     return (
       <div>
         <SortBy

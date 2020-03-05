@@ -71,6 +71,4 @@ class Topics extends Component {
   }
 }
 
-//this doesn't work yet :(
-
 export default Topics;
