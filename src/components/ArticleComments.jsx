@@ -6,22 +6,29 @@ import Loading from './Loading';
 import Voter from './Voter';
 import PostAComment from './PostAComment';
 import CommentRemover from './CommentRemover';
+import ErrorHandler from './ErrorHandler';
 
 class ArticleComments extends Component {
   state = {
     isLoading: true,
-    comments: []
+    comments: [],
+    err: null
   };
 
   componentDidMount() {
-    api.getArticleComments(this.props.article_id).then(comments => {
-      this.setState(currentState => {
-        return {
-          isLoading: false,
-          comments
-        };
+    api
+      .getArticleComments(this.props.article_id)
+      .then(comments => {
+        this.setState(currentState => {
+          return {
+            isLoading: false,
+            comments
+          };
+        });
+      })
+      .then(err => {
+        this.setState({ err });
       });
-    });
   }
 
   handleDelete = deletedCommentId => {
@@ -44,6 +51,13 @@ class ArticleComments extends Component {
   };
 
   render() {
+    if (this.state.err)
+      return (
+        <ErrorHandler
+          status={this.state.err.response.status}
+          msg={this.state.err.response.msg}
+        />
+      );
     if (this.state.isLoading) return <Loading />;
     return (
       <>

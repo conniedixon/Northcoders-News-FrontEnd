@@ -22,9 +22,7 @@ class App extends Component {
         <Header />
         <NavBar />
         <Router>
-          <ErrorHandler
-            default={({ status: 404 }, { msg: 'path not found' })}
-          />
+          <ErrorHandler default msg='Page Not Found' status={404} />
           <Home path='/' />
           <Topics path='/topics/:topic' />
           <SingleArticle user={this.state.user} path='/articles/:article_id' />

@@ -55,7 +55,13 @@ class AllArticles extends Component {
   };
 
   render() {
-    if (this.state.err) return <ErrorHandler error={this.state.err.response} />;
+    if (this.state.err)
+      return (
+        <ErrorHandler
+          status={this.state.err.response.status}
+          msg={this.state.err.response.msg}
+        />
+      );
     if (this.state.isLoading) return <Loading />;
     return (
       <>
