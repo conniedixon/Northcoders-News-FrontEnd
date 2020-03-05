@@ -12,9 +12,11 @@ class CommentRemover extends Component {
 
   render() {
     return (
-      <button onClick={this.deleteComment} id={this.props.comment_id}>
-        Delete Comment
-      </button>
+      <div>
+        <button onClick={this.deleteComment} id={this.props.comment_id}>
+          Delete Comment
+        </button>
+      </div>
     );
   }
 }

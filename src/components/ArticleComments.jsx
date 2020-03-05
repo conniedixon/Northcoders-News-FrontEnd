@@ -47,14 +47,16 @@ class ArticleComments extends Component {
     if (this.state.isLoading) return <Loading />;
     return (
       <>
-        <PostAComment
-          id={this.props.article_id}
-          updateComments={this.updateComments}
-        />
-        {this.state.comments.map(comment => {
-          return (
-            <section key={comment.comment_id}>
-              <div>
+        <div>
+          <PostAComment
+            id={this.props.article_id}
+            updateComments={this.updateComments}
+          />
+        </div>
+        <span>
+          {this.state.comments.map(comment => {
+            return (
+              <section key={comment.comment_id}>
                 <p>{comment.body}</p>
                 <h6>
                   --{comment.author}, {comment.created_at}
@@ -70,10 +72,10 @@ class ArticleComments extends Component {
                   votes={comment.votes}
                   type='comments'
                 />
-              </div>
-            </section>
-          );
-        })}
+              </section>
+            );
+          })}
+        </span>
       </>
     );
   }

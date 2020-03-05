@@ -27,11 +27,11 @@ class TopArticles extends Component {
     return (
       <div>
         <h3>Top Articles</h3>
-        <section className='topArticles'>
+        <articles className='topArticles'>
           {this.state.topArticles.map(article => {
             return <TopArticlePreview article={article} />;
           })}
-        </section>
+        </articles>
       </div>
     );
   }

@@ -17,7 +17,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav className='navbar'>
+      <nav>
         <Link to='/'>
           <button>Home</button>
         </Link>

@@ -13,10 +13,10 @@ class ArticlePreview extends Component {
     const article = this.props.article;
     return (
       <>
-        <Link to={`/articles/${article.article_id}`}>
-          <h3>{article.title}</h3>
-        </Link>
-        <section key={article.article_id}>
+        <article key={article.article_id}>
+          <Link to={`/articles/${article.article_id}`}>
+            <h3>{article.title}</h3>
+          </Link>
           <p>
             n/{article.topic} - posted by {article.author} on{' '}
             {article.created_at}
@@ -31,7 +31,7 @@ class ArticlePreview extends Component {
             id={article.article_id}
             type='articles'
           />
-        </section>
+        </article>
       </>
     );
   }

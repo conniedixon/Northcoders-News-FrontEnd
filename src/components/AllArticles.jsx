@@ -28,7 +28,6 @@ class AllArticles extends Component {
         });
       })
       .catch(err => {
-        console.log('error!!');
         this.setState({ err, isLoading: false });
       });
   }
@@ -59,16 +58,20 @@ class AllArticles extends Component {
     if (this.state.err) return <ErrorHandler error={this.state.err.response} />;
     if (this.state.isLoading) return <Loading />;
     return (
-      <div>
+      <>
         <SortBy
           handleQuery={this.handleQuery}
           queryValue={this.state.queryValue}
         />
-        <h3>All Articles</h3>
-        {this.state.articles.map(article => {
-          return <ArticlePreview key={article.article_id} article={article} />;
-        })}
-      </div>
+        <article>
+          <h3>All Articles</h3>
+          {this.state.articles.map(article => {
+            return (
+              <ArticlePreview key={article.article_id} article={article} />
+            );
+          })}
+        </article>
+      </>
     );
   }
 }

@@ -18,7 +18,7 @@ class Voter extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <button
           onClick={() => {
             this.handleClick(1);
@@ -34,7 +34,7 @@ class Voter extends Component {
           disabled={this.state.optimisticVotes === -1}>
           Downvote
         </button>
-      </div>
+      </>
     );
   }
 }

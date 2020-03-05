@@ -19,20 +19,19 @@ class SortBy extends Component {
   render() {
     const defaultValue = this.props.queryValue || 'Select Filter';
     return (
-      <div>
+      <form>
+        {' '}
         SortBy:
-        <form>
-          <select defaultValue={defaultValue} onChange={this.handleChange}>
-            <option value={'Select Filter'}>Select Filter</option>
-            <option value={'Newest'}>Newest</option>
-            <option value={'Oldest'}>Oldest</option>
-            <option value={'Most_Commented'}>Most Commented</option>
-            <option value={'Least_Commented'}>Least Commented</option>
-            <option value={'Highest_Votes'}>Highest Votes</option>
-            <option value={'Lowest_Votes'}>Lowest Votes</option>
-          </select>
-        </form>
-      </div>
+        <select defaultValue={defaultValue} onChange={this.handleChange}>
+          <option value={'Select Filter'}>Select Filter</option>
+          <option value={'Newest'}>Newest</option>
+          <option value={'Oldest'}>Oldest</option>
+          <option value={'Most_Commented'}>Most Commented</option>
+          <option value={'Least_Commented'}>Least Commented</option>
+          <option value={'Highest_Votes'}>Highest Votes</option>
+          <option value={'Lowest_Votes'}>Lowest Votes</option>
+        </select>
+      </form>
     );
   }
 }

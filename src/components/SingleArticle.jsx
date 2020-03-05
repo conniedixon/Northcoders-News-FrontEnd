@@ -28,28 +28,27 @@ class SingleArticle extends React.Component {
     if (this.state.isLoading) return <Loading />;
     const article = this.state.article;
     return (
-      <div>
+      <article>
+        <h1>{article.title}</h1>
+        <h6>
+          n/{article.topic} - posted by {article.author} on {article.created_at}
+        </h6>
         <div>
-          <h1>{article.title}</h1>
-          <h6>
-            n/{article.topic} - posted by {article.author} on{' '}
-            {article.created_at}
-          </h6>
-          <div>
-            <Voter
-              votes={article.votes}
-              type='articles'
-              id={article.article_id}
-            />
-          </div>
-          <p>{article.body}</p>
+          <Voter
+            votes={article.votes}
+            type='articles'
+            id={article.article_id}
+          />
+        </div>
+        <p>{article.body}</p>
+        <section>
           <h4>Comments</h4>
           <ArticleComments
             user={this.props.user}
             article_id={article.article_id}
           />
-        </div>
-      </div>
+        </section>
+      </article>
     );
   }
 }
