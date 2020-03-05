@@ -19,12 +19,12 @@ class Navbar extends Component {
     return (
       <nav className='navbar'>
         <Link to='/'>
-          <button className='navLinks'>Home</button>
+          <p className='navLinks'>Home</p>
         </Link>
         {this.state.topics.map(topic => {
           return (
             <Link key={topic.slug} to={`/topics/${topic.slug}`}>
-              <button className='navLinks'> {`${topic.slug}`} </button>
+              <p className='navLinks'> {`${topic.slug}`} </p>
             </Link>
           );
         })}
