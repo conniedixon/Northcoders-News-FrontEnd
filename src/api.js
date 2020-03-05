@@ -11,7 +11,6 @@ exports.getTopics = () => {
 };
 
 exports.getArticles = query => {
-  console.log(query, '<-- api');
   return axios
     .get('https://ced-nc-news.herokuapp.com/api/articles', { params: query })
     .then(({ data: { articles } }) => {
