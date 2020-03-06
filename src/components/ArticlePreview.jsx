@@ -14,6 +14,13 @@ class ArticlePreview extends Component {
     return (
       <>
         <div className='preview-grid'>
+          <aside>
+            <Voter
+              votes={article.votes}
+              id={article.article_id}
+              type='articles'
+            />
+          </aside>
           <article key={article.article_id} className='innertext'>
             <Link to={`/articles/${article.article_id}`}>
               <h3 className='articleTitle'>{article.title}</h3>
@@ -24,17 +31,15 @@ class ArticlePreview extends Component {
               </Link>{' '}
               - posted by {article.author} on {article.created_at}
             </p>
-            <p>{article.body.slice(0, 250)}...</p>
+            <p>
+              {article.body.slice(0, 250)}
+              {`  `}
+              <Link to={`/articles/${article.article_id}`}>
+                <button> Read More...</button>
+              </Link>
+            </p>
+
             <p className='articleSub'>{article.comment_count} comments</p>
-            <Link to={`/articles/${article.article_id}`}>
-              <button> Read More...</button>
-            </Link>
-            <br />
-            <Voter
-              votes={article.votes}
-              id={article.article_id}
-              type='articles'
-            />
           </article>
         </div>
       </>
