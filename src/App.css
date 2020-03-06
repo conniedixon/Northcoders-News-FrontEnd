@@ -96,6 +96,7 @@ h1::after {
 .articleTitle {
   color: black;
   text-decoration: none;
+  margin-bottom: 0px;
 }
 
 .articleTitle:hover {
@@ -113,4 +114,27 @@ h1::after {
 
 .articleTitle:active {
   color: rgb(128, 14, 14);
+}
+
+.articleSub {
+  font-weight: bold;
+  font-size: 12px;
+  padding-top: 0px;
+}
+
+.articleSub-link {
+  color: black;
+  text-decoration: none;
+}
+
+.articleSub-link:hover {
+  color: rgb(128, 14, 14);
+}
+
+.articleSub-link:hover::after {
+  content: ' />';
+}
+
+.articleSub-link:hover::before {
+  content: '<';
 }

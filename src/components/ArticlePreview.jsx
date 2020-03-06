@@ -18,9 +18,11 @@ class ArticlePreview extends Component {
             <Link to={`/articles/${article.article_id}`}>
               <h3 className='articleTitle'>{article.title}</h3>
             </Link>
-            <p>
-              n/{article.topic} - posted by {article.author} on{' '}
-              {article.created_at}
+            <p className='articleSub'>
+              <Link to={`/topics/${article.topic}`} className='articleSub-link'>
+                n/{article.topic}
+              </Link>{' '}
+              - posted by {article.author} on {article.created_at}
             </p>
             <p>{article.body.slice(0, 250)}...</p>
             <Link to={`/articles/${article.article_id}`}>
