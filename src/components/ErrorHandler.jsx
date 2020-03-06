@@ -4,7 +4,6 @@ import React from 'react';
 import TopArticles from './TopArticles';
 
 const ErrorHandler = props => {
-  console.log(props, '<-- props heere');
   return (
     <div>
       <h4>ERROR: {props.status}</h4>
@@ -15,5 +14,3 @@ const ErrorHandler = props => {
 };
 
 export default ErrorHandler;
-
-//set focus and link to component

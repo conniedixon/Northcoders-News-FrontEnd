@@ -39,14 +39,16 @@ class TopArticles extends Component {
       );
     if (this.state.isLoading) return <Loading />;
     return (
-      <div className='topArticles-container'>
+      <>
         <h3 className='secondHeader'>{`<`}Top Articles</h3>
-        <articles>
-          {this.state.topArticles.map(article => {
-            return <TopArticlePreview article={article} />;
-          })}
-        </articles>
-      </div>
+        <div>
+          <article className='topArticles-container'>
+            {this.state.topArticles.map(article => {
+              return <TopArticlePreview article={article} />;
+            })}
+          </article>
+        </div>
+      </>
     );
   }
 }
