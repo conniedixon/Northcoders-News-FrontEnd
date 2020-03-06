@@ -44,7 +44,9 @@ class TopArticles extends Component {
         <div>
           <article className='topArticles-container'>
             {this.state.topArticles.map(article => {
-              return <TopArticlePreview article={article} />;
+              return (
+                <TopArticlePreview article={article} key={article.article_id} />
+              );
             })}
           </article>
         </div>

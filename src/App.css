@@ -209,3 +209,17 @@ aside {
 button:hover:disabled {
   background-color: grey;
 }
+
+.indent {
+  margin-left: 75px;
+}
+
+.singleHeader {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border-bottom: 0px;
+}
+
+.articleBody {
+  padding: 25px;
+}

@@ -6,6 +6,7 @@ import ArticleComments from './ArticleComments';
 import Loading from './Loading';
 import Voter from './Voter';
 import ErrorHandler from './ErrorHandler';
+import { Link } from '@reach/router';
 
 class SingleArticle extends React.Component {
   state = {
@@ -43,18 +44,32 @@ class SingleArticle extends React.Component {
     const article = this.state.article;
     return (
       <article>
-        <h1>{article.title}</h1>
-        <h6>
-          n/{article.topic} - posted by {article.author} on {article.created_at}
-        </h6>
-        <div>
-          <Voter
-            votes={article.votes}
-            type='articles'
-            id={article.article_id}
-          />
-        </div>
-        <p>{article.body}</p>
+        <h1 className='secondHeader singleHeader'>
+          {`<`}
+          {article.title}
+          {` `}
+        </h1>
+
+        <article className='preview-grid'>
+          <aside>
+            <Voter
+              votes={article.votes}
+              type='articles'
+              id={article.article_id}
+            />
+          </aside>
+
+          <p className='articleBody'>
+            {article.body}
+            <h6 className='article-Sub indent'>
+              <Link className='articleSub-link' to={`/topics/${article.topic}`}>
+                n/{article.topic}
+              </Link>{' '}
+              - posted by {article.author} on {article.created_at}
+            </h6>
+          </p>
+        </article>
+
         <section>
           <h4>Comments</h4>
           <ArticleComments
