@@ -25,10 +25,11 @@ class ArticlePreview extends Component {
               - posted by {article.author} on {article.created_at}
             </p>
             <p>{article.body.slice(0, 250)}...</p>
+            <p className='articleSub'>{article.comment_count} comments</p>
             <Link to={`/articles/${article.article_id}`}>
               <button> Read More...</button>
             </Link>
-            <p>{article.comment_count} comments</p>
+            <br />
             <Voter
               votes={article.votes}
               id={article.article_id}

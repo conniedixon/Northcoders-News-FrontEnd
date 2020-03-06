@@ -138,3 +138,17 @@ h1::after {
 .articleSub-link:hover::before {
   content: '<';
 }
+
+button {
+  background-color: rgb(233, 222, 222);
+  border: none;
+  color: black;
+  padding: 6px;
+  margin: 0px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: rgb(182, 66, 66);
+  color: white;
+}
