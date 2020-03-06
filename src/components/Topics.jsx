@@ -68,6 +68,10 @@ class Topics extends Component {
     if (this.state.isLoading) return <Loading />;
     return (
       <div>
+        <h3 className='secondHeader'>
+          {`<n/ `}
+          {this.props.topic}
+        </h3>
         <SortBy
           handleQuery={this.handleQuery}
           queryValue={this.state.queryValue}

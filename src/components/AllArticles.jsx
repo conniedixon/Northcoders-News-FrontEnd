@@ -65,12 +65,12 @@ class AllArticles extends Component {
     if (this.state.isLoading) return <Loading />;
     return (
       <>
+        <h3 className='secondHeader'> {`<`}All Articles</h3>
         <SortBy
           handleQuery={this.handleQuery}
           queryValue={this.state.queryValue}
         />
         <article>
-          <h3>All Articles</h3>
           {this.state.articles.map(article => {
             return (
               <ArticlePreview key={article.article_id} article={article} />

@@ -19,7 +19,7 @@ class SortBy extends Component {
   render() {
     const defaultValue = this.props.queryValue || 'Select Filter';
     return (
-      <form>
+      <form className='sortBy'>
         {' '}
         SortBy:
         <select defaultValue={defaultValue} onChange={this.handleChange}>
