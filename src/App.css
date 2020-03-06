@@ -102,14 +102,17 @@ h1::after {
 .articleTitle:hover {
   color: rgb(128, 14, 14);
   text-decoration: none;
+  transition-duration: 0.2s;
 }
 
 .articleTitle:hover::after {
   content: ' />';
+  transition-duration: 0.2s;
 }
 
 .articleTitle:hover::before {
   content: '<';
+  transition-duration: 0.2s;
 }
 
 .articleTitle:active {
@@ -129,6 +132,7 @@ h1::after {
 
 .articleSub-link:hover {
   color: rgb(128, 14, 14);
+  transition-duration: 0.2s;
 }
 
 .articleSub-link:hover::after {
@@ -150,6 +154,7 @@ button {
 button:hover {
   background-color: rgb(182, 66, 66);
   color: white;
+  transition-duration: 0.2s;
 }
 
 aside {
@@ -160,4 +165,12 @@ aside {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.voter {
+  padding: 5px;
+}
+
+button:hover:disabled {
+  background-color: grey;
 }

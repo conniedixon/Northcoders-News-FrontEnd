@@ -20,6 +20,7 @@ class ArticlePreview extends Component {
               id={article.article_id}
               type='articles'
             />
+            <p className='articleSub'>{article.comment_count} comments</p>
           </aside>
           <article key={article.article_id} className='innertext'>
             <Link to={`/articles/${article.article_id}`}>
@@ -35,11 +36,9 @@ class ArticlePreview extends Component {
               {article.body.slice(0, 250)}
               {`  `}
               <Link to={`/articles/${article.article_id}`}>
-                <button> Read More...</button>
+                <button className='readMore'> Read More...</button>
               </Link>
             </p>
-
-            <p className='articleSub'>{article.comment_count} comments</p>
           </article>
         </div>
       </>
