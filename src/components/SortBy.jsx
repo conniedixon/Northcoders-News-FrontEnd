@@ -19,10 +19,11 @@ class SortBy extends Component {
   render() {
     const defaultValue = this.props.queryValue || 'Select Filter';
     return (
-      <form className='sortBy'>
-        {' '}
-        SortBy:
-        <select defaultValue={defaultValue} onChange={this.handleChange}>
+      <form>
+        <select
+          className='sortBy'
+          defaultValue={defaultValue}
+          onChange={this.handleChange}>
           <option value={'Select Filter'}>Select Filter</option>
           <option value={'Newest'}>Newest</option>
           <option value={'Oldest'}>Oldest</option>

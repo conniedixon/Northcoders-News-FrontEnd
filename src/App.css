@@ -6,6 +6,11 @@
   text-decoration: none;
 }
 
+*::selection {
+  background-color: rgba(221, 220, 220, 0.829);
+  color: black;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -90,8 +95,20 @@ h1::after {
   padding: 10px;
 }
 
-.sortBy {
+form {
   margin-left: 50px;
+}
+
+.sortBy {
+  background-color: rgb(233, 222, 222);
+  border: none;
+  color: black;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.sortBy::selection {
+  background-color: rgb(182, 66, 66);
 }
 
 .articleTitle {

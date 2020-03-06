@@ -24,7 +24,7 @@ class Voter extends Component {
             this.handleClick(1);
           }}
           disabled={this.state.optimisticVotes === 1}
-          class='voter'>
+          className='voter'>
           Upvote
         </button>
         <p>{this.props.votes + this.state.optimisticVotes} votes</p>
