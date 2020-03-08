@@ -51,7 +51,7 @@ class SingleArticle extends React.Component {
         </h1>
 
         <article className='preview-grid'>
-          <aside>
+          <aside className='aside'>
             <Voter
               votes={article.votes}
               type='articles'
@@ -71,7 +71,7 @@ class SingleArticle extends React.Component {
         </article>
 
         <section>
-          <h4>Comments</h4>
+          <h4 className='articleTitle commentIndent'>Comments</h4>
           <ArticleComments
             user={this.props.user}
             article_id={article.article_id}

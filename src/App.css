@@ -223,3 +223,18 @@ button:hover:disabled {
 .articleBody {
   padding: 25px;
 }
+
+.commentsGrid {
+  margin: 20px;
+  margin-left: 100px;
+  box-shadow: 0px 0px 25px -15px rgba(89, 86, 92, 0.78);
+  border-radius: 25px;
+}
+
+.commentIndent {
+  margin-left: 120px;
+}
+
+.commentsInner {
+  padding: 10px;
+}

@@ -61,7 +61,7 @@ class ArticleComments extends Component {
     if (this.state.isLoading) return <Loading />;
     return (
       <>
-        <div>
+        <div className='indent'>
           <PostAComment
             id={this.props.article_id}
             updateComments={this.updateComments}
@@ -70,22 +70,28 @@ class ArticleComments extends Component {
         <span>
           {this.state.comments.map(comment => {
             return (
-              <section key={comment.comment_id}>
-                <p>{comment.body}</p>
+              <section
+                key={comment.comment_id}
+                className='commentsGrid commentsInner'>
+                <aside className='aside'>
+                  <Voter
+                    id={comment.comment_id}
+                    votes={comment.votes}
+                    type='comments'
+                  />
+                </aside>
+                <p className='articleBody'>
+                  {comment.body}
+                  {this.props.user === comment.author && (
+                    <CommentRemover
+                      comment_id={comment.comment_id}
+                      handleDelete={this.handleDelete}
+                    />
+                  )}
+                </p>
                 <h6>
                   --{comment.author}, {comment.created_at}
                 </h6>
-                {this.props.user === comment.author && (
-                  <CommentRemover
-                    comment_id={comment.comment_id}
-                    handleDelete={this.handleDelete}
-                  />
-                )}
-                <Voter
-                  id={comment.comment_id}
-                  votes={comment.votes}
-                  type='comments'
-                />
               </section>
             );
           })}
@@ -93,6 +99,28 @@ class ArticleComments extends Component {
       </>
     );
   }
+}
+
+{
+  /* <article className='preview-grid'>
+          <aside className='aside'>
+            <Voter
+              votes={article.votes}
+              type='articles'
+              id={article.article_id}
+            />
+          </aside>
+
+          <p className='articleBody'>
+            {article.body}
+            <h6 className='article-Sub indent'>
+              <Link className='articleSub-link' to={`/topics/${article.topic}`}>
+                n/{article.topic}
+              </Link>{' '}
+              - posted by {article.author} on {article.created_at}
+            </h6>
+          </p>
+        </article> */
 }
 
 export default ArticleComments;
