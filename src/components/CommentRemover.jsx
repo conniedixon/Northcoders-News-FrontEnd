@@ -13,7 +13,10 @@ class CommentRemover extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.deleteComment} id={this.props.comment_id}>
+        <button
+          onClick={this.deleteComment}
+          id={this.props.comment_id}
+          className='deletePadding'>
           Delete Comment
         </button>
       </div>

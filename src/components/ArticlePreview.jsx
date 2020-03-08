@@ -9,6 +9,18 @@ class ArticlePreview extends Component {
     showArticle: false
   };
 
+  formatDate = date => {
+    const newDate = date
+      .split()
+      .slice(0, 11)
+      .join();
+    const newTime = date
+      .split()
+      .slice(13, 18)
+      .join();
+    return `${newDate}, ${newTime}`;
+  };
+
   render() {
     const article = this.props.article;
     return (

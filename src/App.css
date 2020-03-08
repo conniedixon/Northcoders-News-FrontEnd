@@ -238,3 +238,7 @@ button:hover:disabled {
 .commentsInner {
   padding: 10px;
 }
+
+.deletePadding {
+  margin-top: 10px;
+}

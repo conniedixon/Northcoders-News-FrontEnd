@@ -80,18 +80,20 @@ class ArticleComments extends Component {
                     type='comments'
                   />
                 </aside>
-                <p className='articleBody'>
-                  {comment.body}
-                  {this.props.user === comment.author && (
-                    <CommentRemover
-                      comment_id={comment.comment_id}
-                      handleDelete={this.handleDelete}
-                    />
-                  )}
-                </p>
-                <h6>
-                  --{comment.author}, {comment.created_at}
-                </h6>
+                <section className='articleBody'>
+                  <p>
+                    {comment.body}
+                    {this.props.user === comment.author && (
+                      <CommentRemover
+                        comment_id={comment.comment_id}
+                        handleDelete={this.handleDelete}
+                      />
+                    )}
+                    <h6>
+                      --{comment.author}, {comment.created_at}
+                    </h6>
+                  </p>
+                </section>
               </section>
             );
           })}
@@ -99,28 +101,6 @@ class ArticleComments extends Component {
       </>
     );
   }
-}
-
-{
-  /* <article className='preview-grid'>
-          <aside className='aside'>
-            <Voter
-              votes={article.votes}
-              type='articles'
-              id={article.article_id}
-            />
-          </aside>
-
-          <p className='articleBody'>
-            {article.body}
-            <h6 className='article-Sub indent'>
-              <Link className='articleSub-link' to={`/topics/${article.topic}`}>
-                n/{article.topic}
-              </Link>{' '}
-              - posted by {article.author} on {article.created_at}
-            </h6>
-          </p>
-        </article> */
 }
 
 export default ArticleComments;
